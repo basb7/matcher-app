@@ -1,15 +1,19 @@
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
-export default function AuthLayout({children}: { children: React.ReactNode }) {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Box
-      component={'section'}
+      component={"section"}
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        alignItems: "center",
+        justifyContent: "center",
         gap: 2,
       }}
     >

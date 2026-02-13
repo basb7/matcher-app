@@ -1,22 +1,23 @@
 "use client";
 
-import * as React from "react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Divider } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import Stack from "@mui/material/Stack";
-import { Divider } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
+import * as React from "react";
 import ToggleTheme from "@/components/layout/ToggleTheme";
+import useCsrf from "@/hooks/useCsrf";
 
 interface Props {
   isAuthenticated: boolean;
@@ -26,6 +27,7 @@ const pages = ["Ranking", "Competiciones", "¿Cómo funciona?"];
 const settings = ["Profile", "Account", "dashboard", "Logout"];
 
 function Navbar({ isAuthenticated }: Props) {
+  useCsrf();
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
@@ -156,12 +158,19 @@ function Navbar({ isAuthenticated }: Props) {
                     >
                       Iniciar sesión
                     </Button>
-                    <Button variant={"contained"} size="large" fullWidth>
+                    <Button
+                      variant={"contained"}
+                      size="large"
+                      fullWidth
+                      onClick={() => router.push("/auth/register")}
+                    >
                       Registrarse
                     </Button>
                   </>
                 )}
-                <Box sx={{ mt: 5 }}><ToggleTheme /></Box>
+                <Box sx={{ mt: 5 }}>
+                  <ToggleTheme />
+                </Box>
               </Stack>
             </Menu>
           </Box>
@@ -229,7 +238,12 @@ function Navbar({ isAuthenticated }: Props) {
                   >
                     Iniciar Sesión
                   </Button>
-                  <Button variant={"contained"} size="large" fullWidth>
+                  <Button
+                    variant={"contained"}
+                    size="large"
+                    fullWidth
+                    onClick={() => router.push("/auth/register")}
+                  >
                     Registrarse
                   </Button>
                 </>

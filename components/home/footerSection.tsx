@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 
 export function FooterSection() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ export function FooterSection() {
         mt: 8,
         py: 4,
         borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-        textAlign: 'center',
+        textAlign: "center",
       }}
     >
       <Typography variant="body2" color="text.secondary">

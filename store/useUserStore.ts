@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface User {
   id: number;
@@ -8,7 +8,7 @@ interface User {
   is_vip: boolean;
   total_points: number;
   avatar: string | null;
-  vip_unitl: string | null
+  vip_unitl: string | null;
 }
 
 interface UserState {

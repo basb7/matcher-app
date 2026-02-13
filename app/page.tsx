@@ -1,27 +1,21 @@
 import { Box } from "@mui/material";
+import { getSession } from "@/actions/auth/session";
+import { CategorySections } from "@/components/home/categorySections";
+import { FooterSection } from "@/components/home/footerSection";
+import { HowItWorks } from "@/components/home/howItworksSection";
+import { Welcome } from "@/components/home/welcome";
 import Navbar from "@/components/layout/Navbar";
-import {Welcome} from "@/components/home/welcome";
-import {CategorySections} from "@/components/home/categorySections";
-import {HowItWorks} from "@/components/home/howItworksSection";
-import {FooterSection} from "@/components/home/footerSection";
-import {cookies} from "next/headers";
-
-async function isAuthenticated () {
-  const cookieStore = await cookies();
-  const sessionid = cookieStore.get('sessionid')?.value;
-
-  return Boolean(sessionid)
-}
 
 export default async function Home() {
-  const hasUserAuthenticated = await isAuthenticated()
+  const session = await getSession();
+
   return (
     <Box component={"section"}>
-      <Navbar isAuthenticated={hasUserAuthenticated} />
-      <Welcome/>
-      <CategorySections/>
-      <HowItWorks/>
-      <FooterSection/>
+      <Navbar isAuthenticated={session} />
+      <Welcome />
+      <CategorySections />
+      <HowItWorks />
+      <FooterSection />
     </Box>
   );
 }

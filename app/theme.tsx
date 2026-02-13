@@ -1,25 +1,26 @@
-'use client';
-import { createTheme } from '@mui/material/styles';
+"use client";
+
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
         primary: {
-          main: '#ffb300',
+          main: "#ffb300",
         },
       },
     },
     dark: {
       palette: {
         primary: {
-          main: '#ffb300',
+          main: "#ffb300",
         },
       },
     },
   },
   typography: {
-    fontFamily: 'var(--font-roboto)',
+    fontFamily: "var(--font-roboto)",
   },
 });
 
